@@ -1,1 +1,55 @@
 
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+    {% if name %}
+        <h3 class="name text-cneter">Hello, <span class="highlight">{{ name }}</span></h3>
+    {% endif %}
+
+    <div class="name text-center">
+        {% if time >= 2 %}
+        <p> <strong>Welcome back!</strong></p>
+        <p>Continue your journey by doing a lesson.</p>
+        {% else %}
+        <p> <strong>Welcome!</strong></p>
+        <p>Start your journey by doing a lesson!</p>
+        <p>Complete a review to gain your first streak.</p>
+        {% endif %}
+
+        <p> <strong>Streak:</strong> {{ streak }}</p>
+    </div>
+
+
+    <div class="card-container">
+        <div class="content">
+            <h3>Lesson</h3>
+            <p>Start Lesson to unlock more reviews</p>
+        </div>
+        <form action="/go_lesson" method="post">
+            <button class="btn btn-primary" type="submit">Let's go!</button>
+        </form>
+    </div>
+
+    <div class="card-container">
+        <div class="content">
+            <h3>Review</h3>
+            <p>Earn points to level up</p>
+        </div>
+        <a href="/review" class="btn btn-primary">Review</a>
+    </div>
+
+    <div class="card-container">
+        <div class="content">
+            <h3>Free Review</h3>
+            <p>Alternatively, test your skills in all aspects with free review</p>
+        </div>
+        <a href="/freereview" class="btn btn-primary"> Free Review</a>
+    </div>
+
+
+
+{% endblock %}
