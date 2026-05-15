@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    HA HI FU HE HO
+{% endblock %}
+
+{% block main %}
+
+    <div class="d-flex justify-content-center gap-2">
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('HA', this, '#9faeed')" id="defaultOpen">HA</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('HI', this, '#93D3F5')">HI</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('HU', this, '#9dcee2')">FU</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('HE', this, '#BF9FED')">HE</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('HO', this, '#A796C7')">HO</button>
+    </div>
+
+
+
+    <div id="HA" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">HA / は</h1>
+
+    <img src="{{ url_for('static', filename='images/HA.JPG') }}" alt="HA" style="width:20%">
+
+    <p class = "headcol">Here below is how HA is written in Japanese and how to write it!
+        there are only a few easy steps.
+        Well done!
+
+    </p>
+
+    <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/HA1.JPG') }}" alt="HA1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/HA2.JPG') }}" alt="HA2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/HA3.JPG') }}" alt="HA3" style="width:100%">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="HI" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">HI / ひ</h1>
+
+    <img src="{{ url_for('static', filename='images/SHI.JPG') }}" alt="HI" style="width:20%">
+
+    <p class = "headcol">Here below is how "HI" is written in Japanese and how to write it!
+        Well done!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/HI1.JPG') }}" alt="HI1" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="FU" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">FU / ふ</h1>
+
+    <img src="{{ url_for('static', filename='images/SU.JPG') }}" alt="FU" style="width:20%">
+
+    <p class = "headcol">Here below is how "FU" is written in Japanese and how to write it!
+        This is probably one of the easiest ones to draw
+        Well done!
+
+    </p>
+
+    <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/FU1.JPG') }}" alt="FU1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/FU2.JPG') }}" alt="FU2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/FU3.JPG') }}" alt="FU3" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/FU4.JPG') }}" alt="FU4" style="width:100%">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="HE" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">HE / へ</h1>
+
+    <img src="{{ url_for('static', filename='images/HE.JPG') }}" alt="HE" class="img-fluid">
+
+    <p class = "headcol">Here below is how "HE" is written in Japanese and how to write it!
+        Well done!</p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/HE1.JPG') }}" alt="HE1" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="HO" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">HO / ほ</h1>
+
+    <img src="{{ url_for('static', filename='images/SO.JPG') }}" alt="HO" class="img-fluid">
+
+    <p class = "headcol">Here below is how "SO" is written in Japanese and how to write it!
+        Well done!</p>
+
+    <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/HO1.JPG') }}" alt="HO1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/HO2.JPG') }}" alt="HO2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/HO3.JPG') }}" alt="HO3" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/HO4.JPG') }}" alt="HO4" style="width:100%">
+        </div>
+    </div>
+
+    <div class = "text-center my-4">
+        <a href = "/review"  class = "btn btn-success bb">Review Time</a>
+    </div>
+
+    </div>
+
+    <script>
+        function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+        }
+
+        window.onload = function () {
+            document.getElementById("defaultOpen").click();
+        };
+    </script>
+
+{% endblock %}

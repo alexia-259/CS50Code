@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    YA YU YO WA WO N
+{% endblock %}
+
+{% block main %}
+
+    <div class="d-flex justify-content-center gap-2">
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('YA', this, '#9faeed')" id="defaultOpen">YA</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('YU', this, '#93D3F5')">YU</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('YO', this, '#9dcee2')">YO</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('WA', this, '#BF9FED')">WA</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('WO', this, '#A796C7')">WO</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('N', this, '#A796C7')">N</button>
+    </div>
+
+
+
+    <div id="YA" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">YA / や</h1>
+
+    <img src="{{ url_for('static', filename='images/YA.JPG') }}" alt="YA" style="width:20%">
+
+    <p class = "headcol">Here below is how YA is written in Japanese and how to write it!
+        Well done!
+
+    </p>
+
+    <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/YA1.JPG') }}" alt="YA1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/YA2.JPG') }}" alt="YA2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/YA3.JPG') }}" alt="YA3" style="width:100%">
+        </div>
+    </div>
+
+
+
+    <div id="YU" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">YU / ゆ</h1>
+
+    <img src="{{ url_for('static', filename='images/YU.JPG') }}" alt="YU" style="width:20%">
+
+    <p class = "headcol">Here below is how "YU"" is written in Japanese and how to write it!
+        Well done!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/YU1.JPG') }}" alt="YU1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/YU2.JPG') }}" alt="YU2" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <div id="YO" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">YO / よ</h1>
+
+    <img src="{{ url_for('static', filename='images/YO.JPG') }}" alt="YO" style="width:20%">
+
+    <p class = "headcol">Here below is how "YO" is written in Japanese and how to write it!
+        Well done!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/YO1.JPG') }}" alt="YO1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/YO2.JPG') }}" alt="YO2" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="WA" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">RWAU / わ</h1>
+
+    <img src="{{ url_for('static', filename='images/WA.JPG') }}" alt="WA" style="width:20%">
+
+    <p class = "headcol">Here below is how "WA" is written in Japanese and how to write it!
+        This is probably one of the easiest ones to draw
+        Well done!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/WA1.JPG') }}" alt="WA1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/WA2.JPG') }}" alt="WA2" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="WO" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">WO / を</h1>
+
+    <img src="{{ url_for('static', filename='images/WO.JPG') }}" alt="WO" class="img-fluid">
+
+    <p class = "headcol">Here below is how "WO" is written in Japanese and how to write it!
+        Well done!</p>
+
+   <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/WO1.JPG') }}" alt="WO1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/WO2.JPG') }}" alt="WO2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/WO3.JPG') }}" alt="WO3" style="width:100%">
+        </div>
+    </div>
+
+
+
+    <div id="N" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">N / ん</h1>
+
+    <img src="{{ url_for('static', filename='images/N.JPG') }}" alt="N" class="img-fluid">
+
+    <p class = "headcol">Here below is how "N" is written in Japanese and how to write it!
+        Well done!</p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/N1.JPG') }}" alt="N1" class="img-fluid">
+        </div>
+    </div>
+
+    <div class = "text-center my-4">
+        <a href = "/review"  class = "btn btn-success bb">Review Time</a>
+    </div>
+
+    </div>
+
+    <script>
+        function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+        }
+
+        window.onload = function () {
+            document.getElementById("defaultOpen").click();
+        };
+    </script>
+
+{% endblock %}

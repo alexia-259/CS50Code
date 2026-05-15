@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Recent Mistakes
+{% endblock %}
+
+{% block main %}
+ <! -- pass data from Python to Javascript -->
+<! -- ChatGPT help debug the passing of data from db to html -->
+<script id="mistakes-data" type="application/json">
+
+    {{ mistakes | tojson }}
+</script>
+
+<div id="question-container" style="font-size: 24px; margin-bottom: 10px;"></div>
+<input type="text" id="answer-input" placeholder="Type your answer" style="font-size: 18px;">
+<button id="check-btn">Check Answer</button>
+<div id="feedback" style="margin-top: 10px;"></div>
+
+<script>
+    // JSON.parse converst json string to JavaScript array
+    const mistakes = JSON.parse(document.getElementById("mistakes-data").textContent);
+    let currentIndex = 0;
+
+    const questionContainer = document.getElementById("question-container");
+    const answerInput = document.getElementById("answer-input");
+    const checkBtn = document.getElementById("check-btn");
+    const feedback = document.getElementById("feedback");
+
+    function loadQuestion() {
+        feedback.textContent = "";
+        answerInput.value = "";
+
+        if (currentIndex >= mistakes.length) {
+            questionContainer.textContent = "All mistakes corrected! Well done!";
+            answerInput.style.display = "none";
+            checkBtn.style.display = "none";
+            return;
+        }
+
+        const showHiragana = Math.random() < 0.5;
+        const q = mistakes[currentIndex];
+        window.currentAnswer = showHiragana ? q.romaji.toLowerCase() : q.hiragana;
+        questionContainer.textContent = showHiragana
+            ? `What is the romaji for: ${q.hiragana}`
+            : `What is the hiragana for: ${q.romaji}`;
+    }
+
+    checkBtn.addEventListener("click", () => {
+        const userAnswer = answerInput.value.trim().toLowerCase();
+        const current = mistakes[currentIndex];
+
+        if (userAnswer === window.currentAnswer.toLowerCase()) {
+            fetch("/remove_mistake", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    hiragana: current.hiragana,
+                    romaji: current.romaji
+                })
+            }).then(() => {
+                mistakes.splice(currentIndex, 1);
+                loadQuestion();
+            });
+        } else {
+            feedback.style.color = "red";
+            feedback.textContent = "Incorrect. Try again.";
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", loadQuestion);
+</script>
+{% endblock %}

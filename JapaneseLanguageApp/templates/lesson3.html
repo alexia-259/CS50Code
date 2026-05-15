@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    TA CHI TSU TE TO
+{% endblock %}
+
+{% block main %}
+
+    <div class="d-flex justify-content-center gap-2">
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('TA', this, '#9faeed')" id="defaultOpen">TA</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('CHI', this, '#93D3F5')">CHI</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('TSU', this, '#9dcee2')">TSU</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('TE', this, '#BF9FED')">TE</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('TO', this, '#A796C7')">TO</button>
+    </div>
+
+
+
+    <div id="TA" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">TA / た</h1>
+
+    <img src="{{ url_for('static', filename='images/TA.JPG') }}" alt="TA" style="width:20%">
+
+    <p class = "headcol">Here below is how TA is written in Japanese and how to write it!
+        there are only a few easy steps. TA (た), as you can see has a little KO (こ) inside of it,
+        next to the cross. After you are finished, well done!
+
+    </p>
+
+    <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/TA1.JPG') }}" alt="TA1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/TA2.JPG') }}" alt="TA2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/TA3.JPG') }}" alt="TA3" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/TA4.JPG') }}" alt="TA4" style="width:100%">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="CHI" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">CHI / ち</h1>
+
+    <img src="{{ url_for('static', filename='images/CHI.JPG') }}" alt="CHI" style="width:20%">
+
+    <p class = "headcol">Here below is how "SHI" is written in Japanese and how to write it!
+        CHI (ち) kind of looks like a 5, hopefully that helps you remember it better!
+        Well done!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/CHI1.JPG') }}" alt="CHI1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/CHI2.JPG') }}" alt="CHI2" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="TSU" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">TSU / つ</h1>
+
+    <img src="{{ url_for('static', filename='images/TSU.JPG') }}" alt="TSU" style="width:20%">
+
+    <p class = "headcol">Here below is how "TSU" is written in Japanese and how to write it!
+        This is probably one of the easiest ones to draw out of this whole lesson!
+        Well done!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/TSU1.JPG') }}" alt="TSU1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/TSU2.JPG') }}" alt="TSU2" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="TE" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">TE / て</h1>
+
+    <img src="{{ url_for('static', filename='images/TE.JPG') }}" alt="TE" class="img-fluid">
+
+    <p class = "headcol">Here below is how "TE" is written in Japanese and how to write it!
+        Thi is a one stroke one so it is easy!
+        Well done!</p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/TE1.JPG') }}" alt="TE1" class="img-fluid">
+        </div>
+    </div>
+
+
+
+    <div id="TO" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">TO / と</h1>
+
+    <img src="{{ url_for('static', filename='images/TO.JPG') }}" alt="TO" class="img-fluid">
+
+    <p class = "headcol">Here below is how "TO" is written in Japanese and how to write it!
+        Well done!</p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/TO1.JPG') }}" alt="TO1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/TO2.JPG') }}" alt="TO2" class="img-fluid">
+        </div>
+    </div>
+
+    <div class = "text-center my-4">
+        <a href = "/review"  class = "btn btn-success bb">Review Time</a>
+    </div>
+
+    </div>
+
+    <script>
+        function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+        }
+
+        window.onload = function () {
+            document.getElementById("defaultOpen").click();
+        };
+    </script>
+
+{% endblock %}

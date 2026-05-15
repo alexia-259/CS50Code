@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    A I U E O
+{% endblock %}
+
+{% block main %}
+
+    <div class="d-flex justify-content-center gap-2">
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('A', this, '#9faeed')" id="defaultOpen">A</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('I', this, '#93D3F5')">I</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('U', this, '#9dcee2')">U</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('E', this, '#BF9FED')">E</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('O', this, '#A796C7')">O</button>
+    </div>
+
+    <div id="A" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">A / あ</h1>
+
+    <img src="{{ url_for('static', filename='images/A.JPG') }}" alt="A" style="width:20%">
+
+    <p class = "headcol">Here below is how A is written in Japanese and how to write it!
+        It may look difficult but there are only a few easy steps:
+        Well done! You just learnt your first hiragana!
+
+    </p>
+
+    <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/A1.JPG') }}" alt="A1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/A2.JPG') }}" alt="A2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/A3.JPG') }}" alt="A3" style="width:100%">
+        </div>
+    </div>
+
+    <p class = "headcol">The way i remember this hiragana is by looking
+        at the middle. Can you see the sideways A? Now you know! Hiragana
+        A has a little "A" inside of it!
+    </p>
+    <img src="{{ url_for('static', filename='images/AA.JPG') }}" alt="AA" style="width:50%">
+
+    </div>
+
+
+    <div id="I" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">I / い</h1>
+
+    <img src="{{ url_for('static', filename='images/I.JPG') }}" alt="I" style="width:20%">
+
+    <p class = "headcol">Here below is how "i" is written in Japanese and how to write it!
+        This one is a bit easier than the first!
+        Well done! You just learnt your second hiragana!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/I1.JPG') }}" alt="I1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/I2.JPG') }}" alt="I2" class="img-fluid">
+        </div>
+    </div>
+
+    <p class = "headcol">The way i remember this hiragana is by looking
+        at the end. Can you see the "I" without the dot? Now you know! Hiragana
+        I has a little "i" inside of it!
+    </p>
+    <img src="{{ url_for('static', filename='images/II.JPG') }}" alt="II" style="width:50%">
+
+    </div>
+
+        <div id="U" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">U / う</h1>
+
+    <img src="{{ url_for('static', filename='images/U.JPG') }}" alt="U" style="width:20%">
+
+    <p class = "headcol">Here below is how "u" is written in Japanese and how to write it!
+        Well done!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/U1.JPG') }}" alt="U1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/U2.JPG') }}" alt="U2" class="img-fluid">
+        </div>
+    </div>
+
+    <p class = "headcol">The way i remember this hiragana is by looking
+        at the end. Can you see the "u" on its side? Now you know! Hiragana
+        U has a little "u" inside of it!
+    </p>
+    <img src="{{ url_for('static', filename='images/UU.JPG') }}" alt="UU" style="width:50%">
+
+    </div>
+
+    <div id="E" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">E / え</h1>
+
+    <img src="{{ url_for('static', filename='images/E.JPG') }}" alt="E" class="img-fluid">
+
+    <p class = "headcol">Here below is how "e" is written in Japanese and how to write it!
+        This one is a bit complicated because of the end stroke.
+        Well done!</p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/E1.JPG') }}" alt="E1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/E2.JPG') }}" alt="E2" class="img-fluid">
+        </div>
+    </div>
+
+    <p class = "headcol">This one is a bit of a stretch but you can kind of see the
+        backwards E that it forms!
+    </p>
+    <img src="{{ url_for('static', filename='images/EE.JPG') }}" alt="EE" style="width:50%">
+
+    </div>
+
+
+
+        <div id="O" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">O / お</h1>
+
+    <img src="{{ url_for('static', filename='images/O.JPG') }}" alt="O" class="img-fluid">
+
+    <p class = "headcol">Here below is how "o" is written in Japanese and how to write it!
+        This one is a bit complicated because of the end stroke.
+        Well done!</p>
+
+   <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/O1.JPG') }}" alt="O1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/O2.JPG') }}" alt="O2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/O3.JPG') }}" alt="O3" style="width:100%">
+        </div>
+    </div>
+
+    <p class = "headcol">The O can be een on the right side! See? its a very small O!
+    </p>
+    <img src="{{ url_for('static', filename='images/OO.JPG') }}" alt="OO" style="width:50%">
+
+    <div class = "text-center my-4">
+        <a href = "/review"  class = "btn btn-success bb">Review Time</a>
+    </div>
+
+    </div>
+
+    <script>
+        function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+        }
+
+        window.onload = function () {
+            document.getElementById("defaultOpen").click();
+        };
+    </script>
+
+{% endblock %}

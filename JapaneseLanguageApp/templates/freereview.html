@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Free Review
+{% endblock %}
+
+{% block main %}
+<h1 class = "text-center" style = "margin-top: 15px">Free Review</h1>
+<p class = "text-center" style = "margin-top: 15px">Complete the following 10 questions</p><p class="text-center">Answer the questions by typing the correct hiragana or romaji.</p>
+
+<div id="score" style="font-weight: bold; margin-bottom: 15px;">Score: 0</div>
+
+<div class = "free-container">
+    <div id="question-container" style="font-size: 24px; margin-bottom: 10px;"></div>
+
+    <input type="text" id="answer-input" placeholder="Type your answer here" autocomplete="off" style="width: 30%; padding: 8px; font-size: 24px;">
+    <button id="check-btn" class = "bb">Check Answer</button>
+
+    <div id="feedback" style="margin-top: 15px; font-weight: bold;"></div>
+</div>
+
+<script id="questions-data" type="application/json">
+    {{ questions|tojson }}
+</script>
+
+<script>
+    const questions = JSON.parse(document.getElementById("questions-data").textContent);
+    let currentIndex = 0;
+    let score = 0;
+    let tries = 0;
+
+    const questionContainer = document.getElementById("question-container");
+    const answerInput = document.getElementById("answer-input");
+    const checkBtn = document.getElementById("check-btn");
+    const feedback = document.getElementById("feedback");
+    const scoreDiv = document.getElementById("score");
+
+    function loadQuestion() {
+        feedback.textContent = "";
+        answerInput.value = "";
+        tries = 0;
+
+        if (currentIndex >= questions.length) {
+            questionContainer.textContent = "Your total score is: " + score + " / " + questions.length;
+            answerInput.style.display = "none";
+            checkBtn.style.display = "none";
+            return;
+        }
+
+        const showHiragana = Math.random() < 0.5;
+        const q = questions[currentIndex];
+        window.currentAnswer = showHiragana ? q.romaji.toLowerCase() : q.hiragana;
+        questionContainer.textContent = showHiragana ? `What is the romaji for: ${q.hiragana}` : `What is the hiragana for: ${q.romaji}`;
+    }
+
+    checkBtn.addEventListener("click", () => {
+        const userAnswer = answerInput.value.trim().toLowerCase();
+        if (!userAnswer) {
+            feedback.style.color = "red";
+            feedback.textContent = "Please enter an answer.";
+            return;
+        }
+
+        if (userAnswer === window.currentAnswer.toLowerCase()) {
+            score++;
+            scoreDiv.textContent = "Score: " + score;
+            feedback.style.color = "green";
+            feedback.textContent = "Correct!";
+            currentIndex++;
+            loadQuestion();
+        } else {
+            tries++;
+            if (tries >= 2) {
+                feedback.style.color = "orange";
+                feedback.textContent = "Wrong again, moving on";
+                const q = questions[currentIndex];
+
+                fetch("/log_mistake", {
+                    method: "POST",
+                    // sending data convert from JavaScript into JSON
+                    // used ChatGPT to help structure the sending of "mistake"
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        hiragana: q.hiragana,
+                        romaji : q.romaji
+                    })
+                })
+                .then(response => response.json());
+                currentIndex++;
+                loadQuestion();
+            } else {
+                feedback.style.color = "red";
+                feedback.textContent = "Incorrect, try again.";
+            }
+        }
+    });
+
+    //not only does the button work, but so does the enter key
+    answerInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            checkBtn.click();
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        loadQuestion();
+    });
+</script>
+
+{% endblock %}
+
+

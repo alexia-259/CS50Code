@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    MA MI MU ME MO
+{% endblock %}
+
+{% block main %}
+
+    <div class="d-flex justify-content-center gap-2">
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('MA', this, '#9faeed')" id="defaultOpen">MA</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('MI', this, '#93D3F5')">MI</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('MU', this, '#9dcee2')">MU</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('ME', this, '#BF9FED')">ME</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('MO', this, '#A796C7')">MO</button>
+    </div>
+
+
+
+    <div id="MA" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">MA / ま</h1>
+
+    <img src="{{ url_for('static', filename='images/MA.JPG') }}" alt="MA" style="width:20%">
+
+    <p class = "headcol">Here below is how SA is written in Japanese and how to write it!
+        there are only a few easy steps. Be careful as MA (さ) looks very close to HA (き)
+        Well done!
+
+    </p>
+
+    <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/MA1.JPG') }}" alt="MA1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/MA2.JPG') }}" alt="MA2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/MA3.JPG') }}" alt="MA3" style="width:100%">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="SHI" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">MI / み</h1>
+
+    <img src="{{ url_for('static', filename='images/MI.JPG') }}" alt="MI" style="width:20%">
+
+    <p class = "headcol">Here below is how "MI" is written in Japanese and how to write it!
+        It kind of looks like an M.
+        Well done!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/MI1.JPG') }}" alt="MI1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/MI2.JPG') }}" alt="MI2" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="MU" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">MU / む</h1>
+
+    <img src="{{ url_for('static', filename='images/MU.JPG') }}" alt="MU" style="width:20%">
+
+    <p class = "headcol">Here below is how "MU" is written in Japanese and how to write it!
+        Well done!
+
+    </p>
+
+    <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/MU1.JPG') }}" alt="MU1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/MU2.JPG') }}" alt="MU2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/MU3.JPG') }}" alt="MU3" style="width:100%">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="ME" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">ME / め</h1>
+
+    <img src="{{ url_for('static', filename='images/ME.JPG') }}" alt="ME" class="img-fluid">
+
+    <p class = "headcol">Here below is how "ME" is written in Japanese and how to write it!
+        Well done!</p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/ME1.JPG') }}" alt="ME1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/ME2.JPG') }}" alt="ME2" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="MO" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">MO / も</h1>
+
+    <img src="{{ url_for('static', filename='images/MO.JPG') }}" alt="MO" class="img-fluid">
+
+    <p class = "headcol">Here below is how "MO" is written in Japanese and how to write it!
+        Well done!</p>
+
+    <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/MO1.JPG') }}" alt="MO1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/MO2.JPG') }}" alt="MO2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/MO3.JPG') }}" alt="MO3" style="width:100%">
+        </div>
+
+    <div class = "text-center my-4">
+        <a href = "/review"  class = "btn btn-success bb">Review Time</a>
+    </div>
+
+    </div>
+
+    <script>
+        function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+        }
+
+        window.onload = function () {
+            document.getElementById("defaultOpen").click();
+        };
+    </script>
+
+{% endblock %}

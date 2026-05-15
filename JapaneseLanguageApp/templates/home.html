@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="d-flex justify-content-center gap-2">
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('Home', this, '#9faeed')" id="defaultOpen">Home</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('Register', this, '#93D3F5')">Register</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('Login', this, '#9dcee2')">Login</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('Contact', this, '#BF9FED')">Contact</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('About', this, '#A796C7')">About</button>
+    </div>
+
+    <div id="Home" class="tabcontent header text-center" style="display:none;">
+        <h1 class = "headcol">Home</h1>
+        <p class = "headcol">Welcome to Lex's Learning, where we help you understand and remember hiragana via Spaced Repetition System!</p>
+        <p class = "headcol">So... What is a Spaced Repetition System?</p>
+        <p class = "headcol">Great question! It's a way of learning information more effectively via spaced out repetition.
+            You first do a lesson, then a review.
+            After some time has passed, you can come again and do another review.
+            The reviews will be spread out more and more, so your brain has time to think and understand what its learning.
+            Because of the repetition, you will slowly get the, in this context, hiragana faster than any other way!
+            If you get something fast, great! You won't need to do it over and over again, as you already know it.
+            However, if something is more tricky, we will show it to you again, to make sure you understand.</p>
+
+    </div>
+
+    <div id="Register" class="tabcontent header text-center" style="display:none;">
+        <h1 class = "headcol">Register</h1>
+        <p class = "headcol">Register for a new space!</p>
+        <form action="/register" method="post">
+            <button class="btn btn-primary bb" type="submit">Register</button>
+        </form>
+    </div>
+
+    <div id="Login" class="tabcontent header text-center" style="display:none;">
+        <h1 class = "headcol">Log in</h1>
+        <p class = "headcol">Please log in to access your space!</p>
+        <form action="/login" method="post">
+        <button class="btn btn-primary bb" type="submit">Log In</button>
+        </form>
+    </div>
+
+    <div id="Contact" class="tabcontent header text-center" style="display:none;">
+        <h1 class = "headcol">Contact Form</h1>
+        <p class = "headcol">If you encounter any issues or would like to give us feedback, complete the form below!</p>
+
+
+        <div class="container">
+        <form action="/form">
+            <label class = "headcol" for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Name"  required minlength="2">
+
+            <label class = "headcol" for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Last Name" required minlength="2">
+
+            <label class = "headcol" for="country">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+
+
+            <label class = "headcol" for="subject">Comment</label>
+            <textarea id="subject" name="subject" placeholder="Comment here" style="height:200px" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+        </div>
+
+    </div>
+
+    <div id="About" class="tabcontent header text-center" style="display:none;">
+        <h1 class = "headcol">About</h1>
+        <p class = "headcol">Hello! Welcome to our website!!
+            My name is Lex and this is my CS50 submission for the final project! I have worked
+            on this for many hours and it has proven to be way more challenging than I thought,
+            however it has been very reward to do!
+        </p>
+        <p class = "headcol">This website is made to help people learn hiragana, one of the 3 Japanese
+            Scripts you need to know if you are learning Japanese! Hiragana has been very fun to learn
+            and since i have started leaarninv it, I have found this way of doing spaced repetition and I
+            thought that it would have helped me massively if I had a website that would help me with it.
+            My partner is now learning Japanese along side me and I have been trying to teach him also. So,
+            I decided to combine my passion for coding with my passion for language learning and make this
+            cute website. Currently the website teaches you the core hiragana, however via the "Free Review"
+            feature you can also play around with the combo hiragana. Have fun learning!
+        </p>
+    </div>
+    <script>
+        function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+        }
+
+        window.onload = function () {
+            document.getElementById("defaultOpen").click();
+        };
+    </script>
+{% endblock %}

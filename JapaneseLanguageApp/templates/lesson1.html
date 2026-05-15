@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Ka KI KU KE KO
+{% endblock %}
+
+{% block main %}
+
+    <div class="d-flex justify-content-center gap-2">
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('KA', this, '#9faeed')" id="defaultOpen">KA</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('KI', this, '#93D3F5')">KI</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('KU', this, '#9dcee2')">KU</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('KE', this, '#BF9FED')">KE</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('KO', this, '#A796C7')">KO</button>
+    </div>
+
+
+
+    <div id="KA" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">KA / か</h1>
+
+    <img src="{{ url_for('static', filename='images/KA.JPG') }}" alt="KA" style="width:20%">
+
+    <p class = "headcol">Here below is how KA is written in Japanese and how to write it!
+        there are only a few easy steps:
+        Well done!
+
+    </p>
+
+    <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/KA1.JPG') }}" alt="KA1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/KA2.JPG') }}" alt="KA2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/KA3.JPG') }}" alt="KA3" style="width:100%">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="KI" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">KI / き</h1>
+
+    <img src="{{ url_for('static', filename='images/KI.JPG') }}" alt="KI" style="width:20%">
+
+    <p class = "headcol">Here below is how "KI" is written in Japanese and how to write it!
+        This one is a bit harder than the first!
+        Well done!
+
+    </p>
+
+    <div class="clearfix">
+        <div  class="img-container">
+            <img src="{{ url_for('static', filename='images/KI1.JPG') }}" alt="KI1" class="img-fluid">
+        </div>
+        <div  class="img-container">
+            <img src="{{ url_for('static', filename='images/KI2.JPG') }}" alt="KI2" class="img-fluid">
+        </div>
+        <div  class="img-container">
+            <img src="{{ url_for('static', filename='images/KI3.JPG') }}" alt="KI3" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+        <div id="KU" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">KU / く</h1>
+
+    <img src="{{ url_for('static', filename='images/KU.JPG') }}" alt="KU" style="width:20%">
+
+    <p class = "headcol">Here below is how "KU" is written in Japanese and how to write it!
+        This is probably one of the easiest ones to draw
+        Well done!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/U1.JPG') }}" alt="KU1" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="KE" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">KE / け</h1>
+
+    <img src="{{ url_for('static', filename='images/KE.JPG') }}" alt="KE" class="img-fluid">
+
+    <p class = "headcol">Here below is how "KE" is written in Japanese and how to write it!
+        Well done!</p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/KE1.JPG') }}" alt="KE1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/KE2.JPG') }}" alt="KE2" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+        <div id="KO" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">KO / こ</h1>
+
+    <img src="{{ url_for('static', filename='images/KO.JPG') }}" alt="KO" class="img-fluid">
+
+    <p class = "headcol">Here below is how KO" is written in Japanese and how to write it!
+        Well done!</p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/KO1.JPG') }}" alt="KO1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/KO2.JPG') }}" alt="KO2" class="img-fluid">
+        </div>
+    </div>
+
+    <div class = "text-center my-4">
+        <a href = "/review"  class = "btn btn-success bb">Review Time</a>
+    </div>
+
+    </div>
+
+    <script>
+        function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+        }
+
+        window.onload = function () {
+            document.getElementById("defaultOpen").click();
+        };
+    </script>
+
+{% endblock %}

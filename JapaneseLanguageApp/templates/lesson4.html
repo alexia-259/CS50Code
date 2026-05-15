@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    NA NI NU NE NO
+{% endblock %}
+
+{% block main %}
+
+    <div class="d-flex justify-content-center gap-2">
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('NA', this, '#9faeed')" id="defaultOpen">NA</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('NI', this, '#93D3F5')">NI</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('NU', this, '#9dcee2')">NU</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('NE', this, '#BF9FED')">NE</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('NO', this, '#A796C7')">NO</button>
+    </div>
+
+
+
+    <div id="NA" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">NA / な</h1>
+
+    <img src="{{ url_for('static', filename='images/NA.JPG') }}" alt="NA" style="width:20%">
+
+    <p class = "headcol">Here below is how NA (な) is written in Japanese and how to write it!
+        there are only a few easy steps. NA is a cross with a small YO (よ) looking stroke!
+        Well done!
+
+    </p>
+
+    <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/NA1.JPG') }}" alt="NA1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/NA2.JPG') }}" alt="NA2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/NA3.JPG') }}" alt="NA3" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/NA4.JPG') }}" alt="NA4" style="width:100%">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="NI" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">NI / に</h1>
+
+    <img src="{{ url_for('static', filename='images/SHI.JPG') }}" alt="SHI" style="width:20%">
+
+    <p class = "headcol">Here below is how "NI" is written in Japanese and how to write it!
+        NI(に) looks like the number one next to KO (こ).
+        Well done!
+
+    </p>
+
+    <div class="clearfix">
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/NA1.JPG') }}" alt="NI1" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/NA2.JPG') }}" alt="NI2" style="width:100%">
+        </div>
+        <div class="img-container">
+            <img src="{{ url_for('static', filename='images/NA3.JPG') }}" alt="NI3" style="width:100%">
+        </div>
+    </div>
+
+
+
+    <div id="NU" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">NU / ぬ</h1>
+
+    <img src="{{ url_for('static', filename='images/NU.JPG') }}" alt="NU" style="width:20%">
+
+    <p class = "headcol">Here below is how "NU" is written in Japanese and how to write it!
+        This is probably one of the trickiest ones to draw!
+        Well done!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/NU1.JPG') }}" alt="NU1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/NU2.JPG') }}" alt="NU2" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="NE" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">NE / ね</h1>
+
+    <img src="{{ url_for('static', filename='images/NE.JPG') }}" alt="NE" class="img-fluid">
+
+    <p class = "headcol">Here below is how "NE" is written in Japanese and how to write it!
+        This is probably one of the trickiest ones to draw!
+        Well done!</p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/NE1.JPG') }}" alt="NE1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/NE2.JPG') }}" alt="NE2" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="NO" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">NO / の</h1>
+
+    <img src="{{ url_for('static', filename='images/SO.JPG') }}" alt="NO" class="img-fluid">
+
+    <p class = "headcol">Here below is how "NO" is written in Japanese and how to write it!
+        Well done!</p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/NO1.JPG') }}" alt="NO1" class="img-fluid">
+        </div>
+    </div>
+
+    <div class = "text-center my-4">
+        <a href = "/review"  class = "btn btn-success bb">Review Time</a>
+    </div>
+
+    </div>
+
+    <script>
+        function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+        }
+
+        window.onload = function () {
+            document.getElementById("defaultOpen").click();
+        };
+    </script>
+
+{% endblock %}

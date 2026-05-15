@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    RA RI RU RE RO
+{% endblock %}
+
+{% block main %}
+
+    <div class="d-flex justify-content-center gap-2">
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('RA', this, '#9faeed')" id="defaultOpen">RA</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('RI', this, '#93D3F5')">RI</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('RU', this, '#9dcee2')">RU</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('RE', this, '#BF9FED')">RE</button>
+        <button class="tablink btn btn-primary rounded-0" onclick="openPage('RO', this, '#A796C7')">RO</button>
+    </div>
+
+
+
+    <div id="RA" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">RA / ら</h1>
+
+    <img src="{{ url_for('static', filename='images/RA.JPG') }}" alt="RA" style="width:20%">
+
+    <p class = "headcol">Here below is how SA is written in Japanese and how to write it!
+        Well done!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/RA1.JPG') }}" alt="RA1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/RA2.JPG') }}" alt="RA2" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="RI" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">RI / り</h1>
+
+    <img src="{{ url_for('static', filename='images/RI.JPG') }}" alt="RI" style="width:20%">
+
+    <p class = "headcol">Here below is how "RI" is written in Japanese and how to write it!
+        Well done!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/RI1.JPG') }}" alt="RI1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/RI2.JPG') }}" alt="RI2" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="RU" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">RU / る</h1>
+
+    <img src="{{ url_for('static', filename='images/RU.JPG') }}" alt="RU" style="width:20%">
+
+    <p class = "headcol">Here below is how "SU" is written in Japanese and how to write it!
+        This is probably one of the easiest ones to draw
+        Well done!
+
+    </p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/RU1.JPG') }}" alt="RU1" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="RE" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">RE / れ</h1>
+
+    <img src="{{ url_for('static', filename='images/RE.JPG') }}" alt="RE" class="img-fluid">
+
+    <p class = "headcol">Here below is how "RE" is written in Japanese and how to write it!
+        Well done!</p>
+
+   <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/RE1.JPG') }}" alt="RE1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/RE2.JPG') }}" alt="RE2" class="img-fluid">
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="RO" class="tabcontent header text-center" style="display:none;">
+    <h1 class = "headcol">RO / ろ</h1>
+
+    <img src="{{ url_for('static', filename='images/RO.JPG') }}" alt="RO" class="img-fluid">
+
+    <p class = "headcol">Here below is how "RO" is written in Japanese and how to write it!
+        Well done!</p>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-3 text-center">
+            <img src="{{ url_for('static', filename='images/RO1.JPG') }}" alt="RO1" class="img-fluid">
+        </div>
+    </div>
+
+    <div class = "text-center my-4">
+        <a href = "/review"  class = "btn btn-success bb">Review Time</a>
+    </div>
+
+    </div>
+
+    <script>
+        function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+        }
+
+        window.onload = function () {
+            document.getElementById("defaultOpen").click();
+        };
+    </script>
+
+{% endblock %}

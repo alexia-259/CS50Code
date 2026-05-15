@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<style>
+    body {
+        background-color: #B1CFEC;
+    }
+</style>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="custom-alert text-center" role="alert">
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+<form action="/register" method="post">
+<div class="mb-3">
+    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="name" placeholder="Your name" type="text">
+</div>
+<div class="mb-3">
+    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+</div>
+<div class="mb-3">
+    <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+</div>
+<div class="mb-3">
+    <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Re-type Password" type="password">
+</div>
+<button class="btn btn-primary bb" type="submit">Register</button>
+</form>
+
+{% endblock %}
