@@ -1,1 +1,172 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Century Gothic;
+}
 
+/* Style tab links */
+.tablink {
+  background-color: #F5F5F5;
+  color: #191970;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100vh;
+}
+
+.headcol{
+  color: black;
+}
+
+.header {
+  padding: 20px;
+  text-align: center;
+  background: #b1cfec;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  color: #B0C1FF;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #7883AD;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #B0C1FF;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #BF9FED;
+  padding: 20px;
+}
+.free-container {
+  background-color: #9faeed;
+  padding: 20px;
+}
+
+
+.bb{
+  background-color: #9faeed;
+  font-size: 24px;
+  border-radius: 8px;
+  border: 1px solid #9faeed;
+
+}
+
+.bb:hover {
+  background-color: #a49fed;
+  border-color: #a49fed;
+}
+
+.custom-alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: fit-content;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+    font-weight: bold;
+    color: #1a1a1a !important;
+}
+
+.name{
+   margin: 20px;
+}
+
+.card-container {
+  align-items:center
+  padding: 20px;
+  margin: 40px 20px
+}
+
+
+
+.btn-primary {
+  background-color: #6a3c99;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #7d4bbf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.img-container {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#Home {background-color: #9faeed;}
+#Register {background-color: #93D3F5;}
+#Contact {background-color: #BF9FED;}
+#Login {background-color: #9dcee2;}
+#About {background-color: #A796C7;}
