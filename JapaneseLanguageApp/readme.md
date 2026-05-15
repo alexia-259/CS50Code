@@ -1,0 +1,15 @@
+# Lex's Learning
+#### Video Demo:
+#### Description:
+
+A website that helps you learn hiragana with the help of Spaced Repetition! The website requires the user to log in or sign up, where the password is kept secured via hashing. After the user logs in the website greets them with a dashboard where their current streak is visible, which can only be unlocked for the day after the user complete a review. These reviews are unlocked until the user has done the first lesson. Reviews are done in such a way that only areas which have been learnt by the user can be accessed through. The review area closes after the review is done, and will open again after an hour, until the user has completed each reboew 4 times, from then on it will not be shown any more. The hiragana they did wrong will also be shown in the recent mistakes area.
+
+The user also has the opportunity to do free reviews where all of the hiragana plus their different combos can be seen and answered. At one given time the user can do 10 different questions, each question giving the user up to two tries. After the second try is complete and the user does not have the answer, the question will go to the mistake area, which will be shown to the user an hour after the mistake has been done. If the user gets the question right in the mistake area, the hiragana will be removed from said area. The cool part about this is that it wont let you do the corrected version right away, and it will give you some time to think about what the hiragana, which will allow your brain to digest it better.
+
+If the user decides to log out, or the user has not logged in to begin with, the Home section will be shown where the user can read a bit about Spaced Repetition, about me and why I have done this website, they can log in, register and even contact me with feedback.
+
+The website uses an SQL database which stores the hiragana and its romaji reading, as well as which lesson it is part of. Doing so makes it easier to code the reviews, as each review has 5 questions from the previous lesson the user has learnt. The database keeps track of the times the user has logged in to do the reviews, and that is how the code termines if there has been an hour since the previous review. The database also keeps track of what lesson the individual is on and if they have done a review on a specific day. If the user does reviews everyday, they will keep a streak going, which can be seen on the dashboard.
+
+The dashboard allows the user to acess the review, the lesson and the free review. These can be used to further the development of the writing and understand Japanese script of the user.
+
+The homepage and the lesson pages use tabs and tabcontents as well as event listeners to determine on which specific page the user it at the time. This allows the user to have a better expirience on the site, as not all of the information is given to them at once.By keeping the lessons to 5 bite sizes information, it allows the user to not get overwhelmed with the amount of information, and because the user is capped at how many reviews they can do, it allows for the information to be retained much faster.

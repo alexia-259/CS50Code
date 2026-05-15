@@ -1,0 +1,97 @@
+  if review_count >= 3:
+            db.execute("UPDATE lesson SET lessons_done = lessons_done + 1, review_count = 0 WHERE user_id = ?", user_id)
+        else:
+            db.execute("UPDATE lesson SET review_count = review_count + 1 WHERE user_id = ?", user_id)
+
+        # === Streak Update ===
+        if last_active:
+            last_date = date.fromisoformat(last_active)
+
+            if last_date == date.today():
+                pass  # Already active today
+            elif last_date == date.today() - timedelta(days=1):
+                streak += 1  # Consecutive day
+            else:
+                streak = 1  # Missed a day, reset streak
+        else:
+            streak = 1  # First activity
+
+        db.execute(
+            "UPDATE lesson SET last_active = ?, streak_count = ?, last_review_time = ? WHERE user_id = ?",
+            today, streak, now.strftime("%Y-%m-%d %H:%M:%S"), user_id
+        )
+
+        return jsonify(success=True), 200
+
+    # === GET Method: Pull 5 questions from current lesson level ===
+    MAX_LESSON_LEVEL = 9
+    if lessons_done > MAX_LESSON_LEVEL:
+        flash("You’ve completed all lessons!")
+        return redirect('/dashboard')
+
+    questions = db.execute(
+        "SELECT * FROM hiragana WHERE lesson_level = ? ORDER BY RANDOM() LIMIT 5",
+        lessons_done
+    )
+
+    return render_template("review.html", questions=questions)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Review Quiz</title>
+</head>
+<body>
+    <h1>Review Quiz</h1>
+    <form id="quiz-form">
+        {% for q in questions %}
+            <div class="question">
+                <p><strong>{{ q.hiragana }}</strong></p>
+                <input type="hidden" name="hiragana" value="{{ q.hiragana }}">
+                <input type="hidden" name="romaji" value="{{ q.romaji }}">
+                <input type="text" name="user_answer" placeholder="Enter romaji" required>
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("quiz-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const questions = form.querySelectorAll(".question");
+
+            const mistakes = [];
+
+            questions.forEach(q => {
+                const hiragana = q.querySelector('input[name="hiragana"]').value;
+                const correct = q.querySelector('input[name="romaji"]').value.trim().toLowerCase();
+                const user = q.querySelector('input[name="user_answer"]').value.trim().toLowerCase();
+
+                if (user !== correct) {
+                    mistakes.push({ hiragana, romaji: correct });
+                }
+            });
+
+            fetch("/review", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ mistakes })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Review complete!");
+                    window.location.href = "/dashboard";
+                }
+            })
+            .catch(err => {
+                console.error("Error submitting review:", err);
+                alert("An error occurred during review.");
+            });
+        });
+    </script>
+</body>
+</html>
